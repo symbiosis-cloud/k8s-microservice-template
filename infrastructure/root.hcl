@@ -10,6 +10,13 @@ remote_state {
   }
 }
 
+retryable_errors = [
+  "(?s).*failed to call webhook*",
+]
+
+retry_max_attempts = 5
+retry_sleep_interval_sec = 15
+
 inputs = {
   ingress_annotations = {
     "acme.cert-manager.io/http01-edit-in-place" : "true"
