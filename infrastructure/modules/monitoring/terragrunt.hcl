@@ -3,6 +3,6 @@ include "root" {
 }
 
 dependency "cert_manager" {
-  config_path = "./modules/cert-manager"
+  config_path = "../cert-manager"
   skip_outputs = true
 }
