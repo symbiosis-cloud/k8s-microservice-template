@@ -1,0 +1,6 @@
+[//]: # (Visible on the Symbiosis cluster page, can be edited to provide easy access to the different services in your stack)
+
+Services
+- [Grafana](https://{{ domain }}/grafana)
+- [API endpoint](https://{{ domain }}/api)
+- [Jaeger](https://{{ domain }}/jaeger)
