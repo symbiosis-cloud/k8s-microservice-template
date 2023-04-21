@@ -43,7 +43,7 @@ resource "helm_release" "prometheus_stack" {
   values = [
     templatefile("${path.module}/values.yaml", {
       namespace           = local.namespace,
-      grafana_host        = "grafana.${data.kubernetes_config_map.domain.data.domain}",
+      host                = data.kubernetes_config_map.domain.data.domain,
       ingress_annotations = jsonencode(var.ingress_annotations),
     })
   ]
@@ -52,6 +52,8 @@ resource "helm_release" "prometheus_stack" {
     name  = "grafana.adminPassword"
     value = random_password.grafana.result
   }
+
+  timeout = 600
 }
 
 resource "helm_release" "jaeger_operator" {
